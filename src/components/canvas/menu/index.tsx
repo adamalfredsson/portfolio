@@ -1,6 +1,7 @@
 import { useParticle } from "@react-three/cannon";
 import { Text3D } from "@react-three/drei";
-import { useState } from "react";
+import type { GroupProps } from "@react-three/fiber";
+import { PropsWithChildren, useState } from "react";
 
 const MenuItem = ({ text, onClick, height, ...props }: any) => {
   const [hovered, setHovered] = useState(false);
@@ -30,18 +31,10 @@ const MenuItem = ({ text, onClick, height, ...props }: any) => {
   );
 };
 
-const Menu = () => {
-  return (
-    <group position={[0, 0.05, 1]}>
-      <MenuItem position={[-2, 0, 0]} text="PROJECTS" onClick={() => {}} />
-      <MenuItem
-        position={[-1, 0, 4]}
-        text="CONTACT"
-        rotation={[0, -1, 0]}
-        onClick={() => {}}
-      />
-    </group>
-  );
+const Menu = ({ children, ...props }: PropsWithChildren<GroupProps>) => {
+  return <group {...props}>{children}</group>;
 };
+
+Menu.Item = MenuItem;
 
 export default Menu;

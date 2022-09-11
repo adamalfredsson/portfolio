@@ -12,8 +12,16 @@ const Canvas = () => {
 
       <Physics>
         <Plane />
-        <Logo />
-        <Menu />
+        <Logo position={[-1, 0, -4]} />
+        <Menu position={[0, 0.05, 1]}>
+          <Menu.Item position={[-2, 0, 0]} text="PROJECTS" onClick={() => {}} />
+          <Menu.Item
+            position={[-1, 0, 4]}
+            text="CONTACT"
+            rotation={[0, -1, 0]}
+            onClick={() => {}}
+          />
+        </Menu>
       </Physics>
     </RCanvas>
   );

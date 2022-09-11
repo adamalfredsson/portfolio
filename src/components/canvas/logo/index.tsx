@@ -1,14 +1,15 @@
+import type { GroupProps } from "@react-three/fiber";
 import { useState } from "react";
 import { useTimeout } from "../../../hooks/use-timeout";
 import TextCube from "../text-cube";
 
-const Logo = () => {
+const Logo = ({ ...props }: GroupProps) => {
   const [ready, setReady] = useState(false);
 
   useTimeout(() => setReady(true), 1000);
 
   return (
-    <group position={[-1, 0, -4]}>
+    <group {...props}>
       <TextCube position={[0, 4, 0]} text="A" />
       <TextCube
         position={[0.45, 7, -0.25]}
