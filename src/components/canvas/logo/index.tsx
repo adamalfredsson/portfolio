@@ -1,7 +1,36 @@
+import { useBox } from "@react-three/cannon";
 import type { GroupProps } from "@react-three/fiber";
 import { useState } from "react";
+import type { Group } from "three";
 import { useTimeout } from "../../../hooks/use-timeout";
-import TextCube from "../text-cube";
+import Cube, { type CubeProps } from "../cube";
+
+interface TextCubeProps extends CubeProps {
+  text: string;
+}
+
+const TextCube = ({ text, position, ...props }: TextCubeProps) => {
+  const [ref, api] = useBox<Group>(() => ({
+    mass: 1,
+    position,
+  }));
+
+  return (
+    <Cube
+      ref={ref}
+      text={text}
+      onClick={() => {
+        const x = 0.5 + (Math.random() - 0.5) * 2;
+        const y = 0.5 + Math.random() * 3;
+        const z = -Math.random();
+        api.applyImpulse([x, y, z], [0, 0, 0]);
+      }}
+      {...props}
+    >
+      <meshStandardMaterial color="orange" />
+    </Cube>
+  );
+};
 
 const Logo = ({ ...props }: GroupProps) => {
   const [ready, setReady] = useState(false);

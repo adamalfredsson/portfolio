@@ -1,33 +1,41 @@
-import { useParticle } from "@react-three/cannon";
+import type { Triplet } from "@react-three/cannon";
 import { Text3D } from "@react-three/drei";
 import type { GroupProps } from "@react-three/fiber";
 import { PropsWithChildren, useState } from "react";
 
-const MenuItem = ({ text, onClick, height, ...props }: any) => {
+interface MenuItemProps extends GroupProps {
+  text: string;
+  position?: Triplet;
+  rotation?: Triplet;
+  height?: number;
+}
+
+const MenuItem = ({ text, height = 0.001, ...props }: MenuItemProps) => {
   const [hovered, setHovered] = useState(false);
-  const [ref] = useParticle<any>(() => ({
-    mass: 1,
-    ...props,
-  }));
+  const color = hovered ? "orange" : "hotpink";
+
   return (
-    <Text3D
-      ref={ref}
-      font="/fonts/bold.json"
-      size={0.5}
-      height={height ?? 0.001}
-      castShadow
-      curveSegments={32}
-      bevelEnabled
-      bevelSize={0.04}
-      bevelThickness={0.1}
-      bevelSegments={8}
-      onClick={onClick}
+    <group
       onPointerEnter={() => setHovered(true)}
       onPointerLeave={() => setHovered(false)}
+      {...props}
     >
-      {text}
-      <meshStandardMaterial color={hovered ? "orange" : "hotpink"} />
-    </Text3D>
+      <Text3D
+        position={[0, 0, 0]}
+        font="/fonts/bold.json"
+        size={0.5}
+        height={height ?? 0.001}
+        castShadow
+        curveSegments={32}
+        bevelEnabled
+        bevelSize={0.04}
+        bevelThickness={0.1}
+        bevelSegments={8}
+      >
+        {text}
+        <meshStandardMaterial color={color} />
+      </Text3D>
+    </group>
   );
 };
 
