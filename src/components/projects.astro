@@ -1,0 +1,154 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { projects } from "../data/projects";
+import Block from "./atoms/block.astro";
+import Button from "./atoms/button.astro";
+import Container from "./atoms/container.astro";
+import GridItem from "./atoms/grid-item.astro";
+import Grid from "./atoms/grid.astro";
+import Pattern from "./pattern.astro";
+
+export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, "slot"> {}
+
+const { class: className, ...props } = Astro.props as Props;
+---
+
+<Block class:list={[className, "projects"]} {...props}>
+  <Container>
+    <h2 class="title">Projects</h2>
+    <Grid as="ul" class="grid">
+      {
+        projects.map((project) => (
+          <GridItem span={6}>
+            <li class="project">
+              <a
+                class="image-link"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Pattern class="image-pattern">
+                  <Picture
+                    class="image"
+                    src={project.image}
+                    alt={project.title}
+                    widths={[400, 800, 1200]}
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    aspectRatio={16 / 9}
+                  />
+                </Pattern>
+              </a>
+              <h3 class="title">{project.title}</h3>
+              <ul class="tags">
+                {project.tags.map((tag) => (
+                  <li>
+                    <a
+                      class="tag"
+                      href={tag.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {tag.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p class="description">{project.description}</p>
+              <div class="links">
+                <Button
+                  as="a"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Preview
+                </Button>
+                {project.sourceUrl && (
+                  <Button
+                    as="a"
+                    href={project.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    outlined
+                  >
+                    Source
+                  </Button>
+                )}
+              </div>
+            </li>
+          </GridItem>
+        ))
+      }
+    </Grid>
+  </Container>
+</Block>
+
+<style>
+  .projects {
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .grid {
+    margin-top: var(--space-16);
+    row-gap: var(--space-32);
+  }
+
+  .project {
+  }
+
+  .image-link {
+    display: block;
+  }
+
+  .image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-position: top;
+    object-fit: cover;
+    border: 1px solid var(--color-black);
+    box-shadow: var(--shadow);
+    filter: grayscale(30%);
+  }
+
+  h3.title {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-xl);
+    font-weight: bold;
+  }
+
+  .tags {
+    display: inline-flex;
+    flex-flow: row wrap;
+    gap: var(--space-4);
+  }
+
+  .tags:hover .tag:not(:hover) {
+    opacity: 0.3;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-blue);
+    color: var(--color-white);
+    transition: opacity 0.3s ease;
+  }
+
+  .description {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-4);
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  as?: "button" | "a";
+  outlined?: boolean;
+}
+
+const {
+  as: Element = "button" as any,
+  class: className,
+  outlined,
+  ...props
+} = Astro.props as Props;
+---
+
+<Element class:list={[className, "button", { outlined }]} {...props}>
+  <slot />
+</Element>
+
+<style>
+  .button {
+    background: var(--color-black);
+    color: var(--color-white);
+    border: 0;
+    padding: var(--space-4) var(--space-8);
+    font-family: var(--font-primary);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+  }
+
+  .button.outlined {
+    background: transparent;
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+  }
+</style>

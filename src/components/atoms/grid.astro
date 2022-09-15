@@ -1,0 +1,23 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+const {
+  class: className,
+  as: Element = "div" as any,
+  ...props
+} = Astro.props as Props;
+---
+
+<Element class:list={[className, "grid"]} {...props}>
+  <slot />
+</Element>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--space-8);
+  }
+</style>

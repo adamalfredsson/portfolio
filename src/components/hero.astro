@@ -1,0 +1,85 @@
+---
+import { Picture } from "@astrojs/image/components";
+import image from "../assets/images/profile.jpg";
+import Button from "./atoms/button.astro";
+import Container from "./atoms/container.astro";
+import GridItem from "./atoms/grid-item.astro";
+import Grid from "./atoms/grid.astro";
+import Pattern from "./pattern.astro";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const { class: className, ...props } = Astro.props as Props;
+---
+
+<section class:list={[className, "hero"]} {...props}>
+  <Container>
+    <Grid>
+      <GridItem span={5}>
+        <Pattern>
+          <Picture
+            class="image"
+            src={image}
+            alt="Me on vacation in Italy!"
+            widths={[400, 800, 1600]}
+            sizes="(max-width: 800px) 100vw, 800px"
+            aspectRatio={1}
+          />
+        </Pattern>
+      </GridItem>
+      <GridItem class="content" span={6}>
+        <h2>
+          <span>Web</span>
+          <span class="light">Fullstack</span>
+          <br />
+          <span>Developer</span>
+        </h2>
+        <p class="paragraph">
+          I'm passionate about building a beautiful and accessible web
+        </p>
+        <Button>Contact</Button>
+      </GridItem>
+    </Grid>
+  </Container>
+</section>
+
+<style>
+  .hero {
+    margin: var(--space-16) 0;
+  }
+
+  .image :global(img) {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(30%);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  h2 {
+    position: relative;
+  }
+
+  @media screen and (min-width: 768px) {
+    h2 {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  .paragraph {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-12);
+    font-size: var(--text-lg);
+  }
+
+  .light {
+    padding-left: 0.5ch;
+    position: absolute;
+    color: var(--color-gray);
+  }
+</style>

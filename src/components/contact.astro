@@ -1,0 +1,20 @@
+---
+import Block from "./atoms/block.astro";
+import Container from "./atoms/container.astro";
+
+export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, "slot"> {}
+
+const { class: className, ...props } = Astro.props as Props;
+---
+
+<Block class:list={[className, "contact"]} {...props}>
+  <Container>
+    <h2>Contact</h2>
+  </Container>
+</Block>
+
+<style>
+  h2 {
+    font-size: var(--text-2xl);
+  }
+</style>

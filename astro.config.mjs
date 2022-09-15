@@ -1,8 +1,9 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
+import react from "@astrojs/react";
+import { defineConfig } from "astro/config";
+
+import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-	// Enable React to support React JSX components.
-	integrations: [react()],
+  integrations: [react(), image()],
 });

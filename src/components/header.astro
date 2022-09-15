@@ -1,0 +1,32 @@
+---
+import Button from "./atoms/button.astro";
+import Container from "./atoms/container.astro";
+---
+
+<header>
+  <Container class="container">
+    <h1>Adam Alfredsson</h1>
+    <nav>
+      <a href="#">Projects</a>
+      <Button>Contact</Button>
+    </nav>
+  </Container>
+</header>
+
+<style>
+  header {
+    margin: var(--space-8) 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    gap: var(--space-12);
+    align-items: center;
+  }
+</style>

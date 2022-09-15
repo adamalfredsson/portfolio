@@ -1,0 +1,21 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+const {
+  class: className,
+  as: Element = "div" as any,
+  ...props
+} = Astro.props as Props;
+---
+
+<Element class:list={[className, "{{ kebabCase name }}"]} {...props}>
+  <slot />
+</Element>
+
+<style>
+  .{{ kebabCase name }} {
+
+  }
+</style>

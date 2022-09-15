@@ -1,0 +1,43 @@
+---
+import Svg from "./atoms/svg.astro";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const { class: className, ...props } = Astro.props as Props;
+---
+
+<div class:list={[className, "pattern"]} {...props}>
+  <div class="svg">
+    <Svg icon="topography" />
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .pattern {
+    display: inline-block;
+    position: relative;
+    color: var(--color-blue);
+    padding-right: var(--space-8);
+  }
+
+  .svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: var(--space-8);
+    right: var(--space-8);
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .content {
+    display: block;
+    position: relative;
+    top: var(--space-8);
+    left: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+</style>

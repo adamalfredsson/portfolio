@@ -1,3 +1,12 @@
+---
+import "@fontsource/josefin-sans";
+import Header from "../components/header.astro";
+import { theme } from "../config/theme";
+import { flattenProperties } from "../utils/object";
+
+const cssVars = flattenProperties(theme);
+---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,12 +15,55 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
+    <Header />
     <slot />
-    <style is:global>
+    <style is:global define:vars={cssVars}>
       html,
       body {
-        font-family: system-ui;
+        font-family: "Josefin Sans", sans-serif;
         margin: 0;
+      }
+
+      html,
+      body,
+      * {
+        box-sizing: border-box;
+      }
+
+      body,
+      button {
+        font-size: var(--text-base);
+      }
+
+      a {
+        text-decoration: none;
+        color: initial;
+      }
+
+      p,
+      ul,
+      ol {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0;
+        font-weight: normal;
+      }
+
+      p {
+        max-width: 55ch;
+        line-height: 1.4;
+      }
+
+      ul,
+      ol {
+        padding: 0;
+        list-style: none;
       }
     </style>
   </body>

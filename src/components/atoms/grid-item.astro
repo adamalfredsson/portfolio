@@ -1,0 +1,17 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  span: number;
+}
+
+const { span, class: className, ...props } = Astro.props as Props;
+---
+
+<div class:list={[className, "grid-item"]} {...props}>
+  <slot />
+</div>
+
+<style define:vars={{ span }}>
+  .grid-item {
+    grid-column: span var(--span);
+  }
+</style>
