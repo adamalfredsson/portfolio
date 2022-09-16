@@ -1,5 +1,6 @@
 import almondy from "../assets/images/almondy.jpg";
 import anima from "../assets/images/anima.jpg";
+import avatarcountry from "../assets/images/avatarcountry.jpg";
 import netclean from "../assets/images/netclean.jpg";
 import snxbox from "../assets/images/snxbox.jpg";
 
@@ -47,9 +48,24 @@ const nuxtJs: Tag = {
   url: "https://nuxtjs.org/",
 };
 
+const vueJs: Tag = {
+  name: "Vue.js",
+  url: "https://vuejs.org/",
+};
+
+const prisma: Tag = {
+  name: "Prisma",
+  url: "https://www.prisma.io/",
+};
+
 const tailwindCss: Tag = {
   name: "Tailwind CSS",
   url: "https://tailwindcss.com/",
+};
+
+const apollo: Tag = {
+  name: "Apollo GraphQL",
+  url: "https://www.apollographql.com/",
 };
 
 const googleCloudPlatform: Tag = {
@@ -73,7 +89,7 @@ export const projects: Project[] = [
     image: snxbox,
     url: "https://snxbox.app/",
     sourceUrl: "https://github.com/nomadoda/snxbox",
-    tags: [nextJs, nestJs, datoCms, googleCloudPlatform],
+    tags: [nextJs, nestJs, prisma, datoCms, googleCloudPlatform],
   },
   {
     title: "Almondy",
@@ -90,5 +106,13 @@ export const projects: Project[] = [
     image: anima,
     url: "https://newsite.anima.dk/",
     tags: [nuxtJs, tailwindCss, wordpress],
+  },
+  {
+    title: "Avatar country",
+    description:
+      "Fan page for a renowned metal band. Built an internal currency users could purchase merchandise, tickets and more with.",
+    image: avatarcountry,
+    url: "https://avatarcountry.com/",
+    tags: [vueJs, apollo],
   },
 ];

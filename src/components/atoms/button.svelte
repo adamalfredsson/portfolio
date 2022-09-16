@@ -1,20 +1,18 @@
----
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
-  as?: "button" | "a";
-  outlined?: boolean;
-}
+<script lang="ts">
+  export let as: "button" | "a";
+  export let outlined: boolean;
+  let clazz: string;
+  export { clazz as class };
+</script>
 
-const {
-  as: Element = "button" as any,
-  class: className,
-  outlined,
-  ...props
-} = Astro.props as Props;
----
-
-<Element class:list={[className, "button", { outlined }]} {...props}>
+<svelte:element
+  this={as}
+  class={`button ${clazz || ""}`}
+  class:outlined
+  {...$$restProps}
+>
   <slot />
-</Element>
+</svelte:element>
 
 <style>
   .button {
