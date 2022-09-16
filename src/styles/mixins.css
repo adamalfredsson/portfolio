@@ -1,0 +1,28 @@
+@define-mixin responsive $variable {
+  --$(variable): var(--$(variable)-default);
+
+  @media (--viewport-sm) {
+    --$(variable): var(--$(variable)-sm, var(--$(variable)-default));
+  }
+  @media (--viewport-md) {
+    --$(variable): var(
+      --$(variable)-md,
+      var(--$(variable)-sm, var(--$(variable)-default))
+    );
+  }
+  @media (--viewport-lg) {
+    --$(variable): var(
+      --$(variable)-lg,
+      var(--$(variable)-md, var(--$(variable)-sm, var(--$(variable)-default)))
+    );
+  }
+  @media (--viewport-xl) {
+    --$(variable): var(
+      --$(variable)-xl,
+      var(
+        --$(variable)-lg,
+        var(--$(variable)-md, var(--$(variable)-sm, var(--$(variable)-default)))
+      )
+    );
+  }
+}

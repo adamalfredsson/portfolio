@@ -13,13 +13,13 @@ export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, "slot"> {}
 const { class: className, ...props } = Astro.props as Props;
 ---
 
-<Block class:list={[className, "projects"]} {...props}>
+<Block id="projects" class:list={[className, "projects"]} {...props}>
   <Container>
     <h2 class="title">Projects</h2>
     <Grid as="ul" class="grid">
       {
         projects.map((project) => (
-          <GridItem span={6}>
+          <GridItem span={[6]}>
             <li class="project">
               <a
                 class="image-link"
@@ -89,11 +89,19 @@ const { class: className, ...props } = Astro.props as Props;
 
   h2 {
     font-size: var(--text-2xl);
+
+    @media (--viewport-sm) {
+      font-size: var(--text-3xl);
+    }
   }
 
   .grid {
     margin-top: var(--space-16);
-    row-gap: var(--space-32);
+    row-gap: var(--space-16);
+
+    @media (--viewport-md) {
+      row-gap: var(--space-32);
+    }
   }
 
   .project {
@@ -122,12 +130,21 @@ const { class: className, ...props } = Astro.props as Props;
     margin-bottom: var(--space-4);
     font-size: var(--text-xl);
     font-weight: bold;
+
+    @media (--viewport-sm) {
+      font-size: var(--text-2xl);
+    }
   }
 
   .tags {
     display: inline-flex;
     flex-flow: row wrap;
-    gap: var(--space-4);
+    font-size: var(--text-sm);
+    gap: var(--space-2) var(--space-4);
+
+    @media (--viewport-md) {
+      font-size: var(--text-base);
+    }
   }
 
   .tags:hover .tag:not(:hover) {

@@ -1,6 +1,8 @@
 ---
+import { responsive, ResponsiveValues } from "../../utils/responsive";
+
 export interface Props extends astroHTML.JSX.HTMLAttributes {
-  span: number;
+  span: ResponsiveValues;
 }
 
 const { span, class: className, ...props } = Astro.props as Props;
@@ -10,8 +12,10 @@ const { span, class: className, ...props } = Astro.props as Props;
   <slot />
 </div>
 
-<style define:vars={{ span }}>
+<style define:vars={{ ...responsive("span", span) }}>
   .grid-item {
+    @mixin responsive span;
+
     grid-column: span var(--span);
   }
 </style>

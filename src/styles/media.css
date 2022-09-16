@@ -1,0 +1,19 @@
+@custom-media --viewport-sm (min-width: 640px);
+@custom-media --viewport-md (min-width: 768px);
+@custom-media --viewport-lg (min-width: 1024px);
+@custom-media --viewport-xl (min-width: 1280px);
+
+@define-mixin responsive $variable {
+  @media (--viewport-sm) {
+    --$(variable): var(--$(variable)-sm);
+  }
+  @media (--viewport-md) {
+    --$(variable): var(--$(variable)-md);
+  }
+  @media (--viewport-lg) {
+    --$(variable): var(--$(variable)-lg);
+  }
+  @media (--viewport-xl) {
+    --$(variable): var(--$(variable)-xl);
+  }
+}

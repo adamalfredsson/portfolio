@@ -17,11 +17,12 @@ export const theme = {
   ),
   shadow: "4px 4px 0 0 var(--color-blue)",
   text: {
-    sm: "1rem",
-    base: "1.25rem",
-    lg: "2.25rem",
-    xl: "3rem",
-    "2xl": "6rem",
-    "3xl": "8rem",
+    sm: "0.875rem",
+    base: "1rem",
+    lg: "1.25rem",
+    xl: "2.25rem",
+    "2xl": "3rem",
+    "3xl": "6rem",
+    "4xl": "8rem",
   },
 };

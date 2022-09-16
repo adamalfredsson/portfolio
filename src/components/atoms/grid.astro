@@ -17,7 +17,12 @@ const {
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: var(--space-8);
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: var(--space-4);
+
+    @media (--viewport-md) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: var(--space-8);
+    }
   }
 </style>
