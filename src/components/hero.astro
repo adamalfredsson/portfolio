@@ -90,9 +90,13 @@ const { class: className, ...props } = Astro.props as Props;
   }
 
   .light {
-    padding-left: 0.5ch;
+    padding-left: 0.3ch;
     position: absolute;
     color: var(--color-gray-light);
+
+    @media (--viewport-lg) {
+      padding-left: 0.5ch;
+    }
   }
 </style>
 
