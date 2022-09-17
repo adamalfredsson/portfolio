@@ -16,8 +16,9 @@ const { class: className, ...props } = Astro.props as Props;
   <Container>
     <Grid class="grid">
       <GridItem span={[6, 4, 5]}>
-        <Pattern>
+        <Pattern id="hero-pattern">
           <Picture
+            id="hero-image"
             class="image"
             src={image}
             alt="Me on vacation in Italy!"
@@ -94,3 +95,15 @@ const { class: className, ...props } = Astro.props as Props;
     color: var(--color-gray-light);
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+
+  gsap.from(["#hero-pattern", "#hero-image"], {
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+    delay: 0.5,
+    stagger: 0.3,
+  });
+</script>

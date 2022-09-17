@@ -5,7 +5,7 @@ import Container from "./atoms/container.astro";
 
 <header>
   <Container class="container">
-    <h1>Adam Alfredsson</h1>
+    <h1 id="title">Adam Alfredsson</h1>
     <nav>
       <a href="#projects">Projects</a>
       <Button as="a" href="#contact">Contact</Button>
@@ -34,3 +34,15 @@ import Container from "./atoms/container.astro";
     }
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+
+  gsap.from("#title", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.5,
+    ease: "power4.out",
+  });
+</script>

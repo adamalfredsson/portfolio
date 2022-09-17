@@ -175,3 +175,21 @@ const { class: className, ...props } = Astro.props as Props;
     gap: var(--space-4);
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from("li.project", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.4,
+    scrollTrigger: {
+      trigger: "#projects",
+      start: "top 50%",
+    },
+  });
+</script>
