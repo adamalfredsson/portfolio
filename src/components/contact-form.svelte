@@ -46,7 +46,7 @@
   {#if status === "success"}
     <p class="success">Thanks for your message!</p>
   {:else}
-    <Button disabled={status === "loading"}>Submit</Button>
+    <Button class="button" disabled={status === "loading"}>Submit</Button>
     {#if status === "error"}
       <p class="error">Something went wrong. Please try again.</p>
     {/if}
@@ -60,7 +60,9 @@
     gap: var(--space-4);
   }
 
-  form :global(.button) {
+  form :global(.button),
+  .success {
+    margin-top: var(--space-4);
     align-self: flex-start;
   }
 

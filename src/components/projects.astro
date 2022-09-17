@@ -123,6 +123,12 @@ const { class: className, ...props } = Astro.props as Props;
     border: 1px solid var(--color-black);
     box-shadow: var(--shadow);
     filter: grayscale(30%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      filter: grayscale(0);
+      opacity: 0.95;
+    }
   }
 
   h3.title {

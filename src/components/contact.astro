@@ -15,7 +15,7 @@ const { class: className, ...props } = Astro.props as Props;
     <h2>Are we a match?</h2>
     <Grid class="grid">
       <GridItem span={[6, 8, null, 6, 5]}>
-        <ContactForm client:only="svelte" />
+        <ContactForm client:visible />
       </GridItem>
     </Grid>
   </Container>

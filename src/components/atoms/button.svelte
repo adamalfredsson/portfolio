@@ -25,15 +25,25 @@
     box-shadow: var(--shadow);
     transition: all 0.2s ease-in-out;
 
-    &.outlined {
-      background: transparent;
-      color: var(--color-black);
-      border: 1px solid var(--color-black);
+    &:hover {
+      background: var(--color-gray);
     }
 
     &:disabled {
       background: var(--color-gray);
       cursor: not-allowed;
+    }
+
+    &.outlined {
+      background: transparent;
+      color: var(--color-black);
+      border: 1px solid var(--color-black);
+
+      &:hover {
+        background: var(--color-gray);
+        border-color: var(--color-gray);
+        color: var(--color-white);
+      }
     }
   }
 </style>
