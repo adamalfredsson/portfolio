@@ -1,6 +1,9 @@
 ---
 import Block from "./atoms/block.astro";
 import Container from "./atoms/container.astro";
+import GridItem from "./atoms/grid-item.astro";
+import Grid from "./atoms/grid.astro";
+import ContactForm from "./contact-form.svelte";
 
 export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, "slot"> {}
 
@@ -9,7 +12,12 @@ const { class: className, ...props } = Astro.props as Props;
 
 <Block id="contact" class:list={[className, "contact"]} {...props}>
   <Container>
-    <h2>Contact</h2>
+    <h2>Are we a match?</h2>
+    <Grid class="grid">
+      <GridItem span={[6, 8, null, 6, 5]}>
+        <ContactForm client:only="svelte" />
+      </GridItem>
+    </Grid>
   </Container>
 </Block>
 
@@ -20,5 +28,9 @@ const { class: className, ...props } = Astro.props as Props;
     @media (--viewport-sm) {
       font-size: var(--text-3xl);
     }
+  }
+
+  .grid {
+    margin-top: var(--space-16);
   }
 </style>

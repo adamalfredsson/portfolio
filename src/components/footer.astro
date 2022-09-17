@@ -1,0 +1,63 @@
+---
+import Container from "./atoms/container.astro";
+import Svg from "./atoms/svg.astro";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const githubUrl = "https://github.com/nomadoda/portfolio";
+const linkedinUrl = "https://www.linkedin.com/in/adam-alfredsson-188097131/";
+const emailUrl = "mailto:adam@zodiapps.com";
+
+const { class: className, ...props } = Astro.props as Props;
+---
+
+<footer class:list={[className, "footer"]} {...props}>
+  <Container class="icons">
+    <a href={githubUrl} target="_blank">
+      <Svg icon="github" />
+    </a>
+    <a href={linkedinUrl} target="_blank">
+      <Svg icon="linkedin" />
+    </a>
+    <a href={emailUrl} target="_blank">
+      <Svg icon="email" />
+    </a>
+  </Container>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-16) 0;
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover a:not(:hover) {
+      opacity: 0.3;
+    }
+
+    @media (--viewport-sm) {
+      justify-content: flex-start;
+      gap: var(--space-32);
+    }
+  }
+
+  a {
+    transition: opacity 0.3s ease;
+  }
+
+  a :global(svg) {
+    width: var(--space-12);
+    height: var(--space-12);
+
+    @media (--viewport-md) {
+      width: var(--space-16);
+      height: var(--space-16);
+    }
+  }
+</style>

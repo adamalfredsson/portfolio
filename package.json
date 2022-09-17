@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/image": "^0.7.0",
     "@astrojs/svelte": "^1.0.0",
+    "@emailjs/browser": "^3.7.0",
     "@fontsource/josefin-sans": "^4.5.10",
     "astro": "^1.2.5",
     "svelte": "^3.46.4"
@@ -24,5 +25,8 @@
     "postcss-mixins": "^9.0.4",
     "postcss-nesting": "^10.2.0",
     "postcss-simple-vars": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=16.13.0"
   }
 }

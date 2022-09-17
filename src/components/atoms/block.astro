@@ -11,11 +11,13 @@ const { class: className, ...props } = Astro.props as Props;
 <style>
   .block {
     margin-top: var(--space-16);
+    margin-bottom: var(--space-16);
     padding-top: var(--space-16);
     border-top: 1px solid var(--color-black);
 
     @media (--viewport-sm) {
       margin-top: var(--space-32);
+      margin-bottom: var(--space-32);
       padding-top: var(--space-32);
     }
   }

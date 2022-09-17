@@ -1,20 +1,20 @@
 <script lang="ts">
-  export let as: "button" | "a";
-  export let outlined: boolean;
-  let clazz: string;
+  export let as: "button" | "a" = "button";
+  export let outlined = false;
+  let clazz = "";
   export { clazz as class };
 </script>
 
 <svelte:element
   this={as}
-  class={`button ${clazz || ""}`}
+  class={`button ${clazz}`}
   class:outlined
   {...$$restProps}
 >
   <slot />
 </svelte:element>
 
-<style>
+<style lang="postcss">
   .button {
     background: var(--color-black);
     color: var(--color-white);
@@ -23,11 +23,17 @@
     font-family: var(--font-primary);
     cursor: pointer;
     box-shadow: var(--shadow);
-  }
+    transition: all 0.2s ease-in-out;
 
-  .button.outlined {
-    background: transparent;
-    color: var(--color-black);
-    border: 1px solid var(--color-black);
+    &.outlined {
+      background: transparent;
+      color: var(--color-black);
+      border: 1px solid var(--color-black);
+    }
+
+    &:disabled {
+      background: var(--color-gray);
+      cursor: not-allowed;
+    }
   }
 </style>

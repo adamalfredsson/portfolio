@@ -37,7 +37,7 @@ const { class: className, ...props } = Astro.props as Props;
         <p class="paragraph">
           I'm passionate about building a beautiful and accessible web
         </p>
-        <Button>Contact</Button>
+        <Button as="a" href="#contact">Contact</Button>
       </GridItem>
     </Grid>
   </Container>
@@ -91,6 +91,6 @@ const { class: className, ...props } = Astro.props as Props;
   .light {
     padding-left: 0.5ch;
     position: absolute;
-    color: var(--color-gray);
+    color: var(--color-gray-light);
   }
 </style>

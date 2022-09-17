@@ -3,7 +3,8 @@ export const theme = {
     black: "#17181D",
     white: "#FFFFFF",
     blue: "#00A3FF",
-    gray: "#F4F4F4",
+    gray: "#C6C9D3",
+    "gray-light": "#F4F4F4",
   },
   font: {
     primary: "Josefin Sans",

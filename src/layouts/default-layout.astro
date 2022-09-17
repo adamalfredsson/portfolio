@@ -1,5 +1,6 @@
 ---
 import "@fontsource/josefin-sans";
+import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import { theme } from "../config/theme";
 import { flattenProperties } from "../utils/object";
@@ -17,6 +18,7 @@ const cssVars = flattenProperties(theme);
   <body>
     <Header />
     <slot />
+    <Footer />
     <style is:global define:vars={cssVars}>
       html,
       body {
