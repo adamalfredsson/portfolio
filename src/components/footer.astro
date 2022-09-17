@@ -13,13 +13,13 @@ const { class: className, ...props } = Astro.props as Props;
 
 <footer class:list={[className, "footer"]} {...props}>
   <Container class="icons">
-    <a href={githubUrl} target="_blank">
+    <a aria-label="Github" href={githubUrl} target="_blank">
       <Svg icon="github" />
     </a>
-    <a href={linkedinUrl} target="_blank">
+    <a aria-label="LinkedIn" href={linkedinUrl} target="_blank">
       <Svg icon="linkedin" />
     </a>
-    <a href={emailUrl} target="_blank">
+    <a aria-label="Send email" href={emailUrl} target="_blank">
       <Svg icon="email" />
     </a>
   </Container>
