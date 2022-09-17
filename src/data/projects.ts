@@ -68,6 +68,11 @@ const apollo: Tag = {
   url: "https://www.apollographql.com/",
 };
 
+const docker: Tag = {
+  name: "Docker",
+  url: "https://www.docker.com/",
+};
+
 const googleCloudPlatform: Tag = {
   name: "Google Cloud Platform",
   url: "https://cloud.google.com/",
@@ -77,7 +82,7 @@ export const projects: Project[] = [
   {
     title: "NetClean",
     description:
-      "Detect and block child sexual abuse material on business IT devices. Collaborated with Level9 in launching their new marketing website.",
+      "Detect and block child sexual abuse material on business IT devices. Collaborated with Level9 in launching NetClean's new marketing website. The frontend is built statically using Next.js with content managed in DatoCMS.",
     image: netclean,
     url: "https://netclean.com/",
     tags: [nextJs, datoCms, netlify],
@@ -85,16 +90,16 @@ export const projects: Project[] = [
   {
     title: "Snxbox",
     description:
-      "Do-it-yourself vending machine to deploy at your office. It's a fun side-project of mine.",
+      "Do-it-yourself vending machine to deploy at your office. It's a fun and sophisticated side-project of mine. A Nest.js backend using Prisma as ORM and exposing a GraphQL API. App infrastructure is deployed on Google Cloud Platform using Docker & Cloud Run.",
     image: snxbox,
     url: "https://snxbox.app/",
     sourceUrl: "https://github.com/nomadoda/snxbox",
-    tags: [nextJs, nestJs, prisma, datoCms, googleCloudPlatform],
+    tags: [nextJs, nestJs, prisma, datoCms, docker],
   },
   {
     title: "Almondy",
     description:
-      "In collaboration with Level9, new marketing website for local cake manufacturer.",
+      "In collaboration with Level9, new marketing website for local cake manufacturer. I was responsible for building the frontend, using TailwindCSS.",
     image: almondy,
     url: "https://www.almondy.com/sv/",
     tags: [tailwindCss, wordpress],
@@ -102,7 +107,7 @@ export const projects: Project[] = [
   {
     title: "Anima",
     description:
-      "Danish animal rights organisation. Website is under construction.",
+      "Danish animal rights organisation. We're using a headless Wordpress setup with a custom Nuxt.js frontend.",
     image: anima,
     url: "https://newsite.anima.dk/",
     tags: [nuxtJs, tailwindCss, wordpress],
