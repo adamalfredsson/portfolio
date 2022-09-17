@@ -1,0 +1,13 @@
+{
+  "name": "Adam",
+  "short_name": "Adam",
+  "icons": [
+    {
+      "src": "google-touch-icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#F4F4F4",
+  "theme_color": "#F4F4F4",
+  "display": "fullscreen"
+}
