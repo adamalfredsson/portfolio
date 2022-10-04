@@ -15,14 +15,14 @@ const { class: className, ...props } = Astro.props as Props;
 <section class:list={[className, "hero"]} {...props}>
   <Container>
     <Grid class="grid">
-      <GridItem span={[6, 4, 5]}>
+      <GridItem class="image-container" span={[6, 4, 5]}>
         <Pattern id="hero-pattern">
           <Picture
             id="hero-image"
             class="image"
             src={image}
-            alt="Me on vacation in Italy!"
-            widths={[300, 600, 1200]}
+            alt="Me on the computer!"
+            widths={[400, 700, 1300]}
             sizes="(max-width: 800px) 100vw, 800px"
             aspectRatio={1}
           />
@@ -51,6 +51,12 @@ const { class: className, ...props } = Astro.props as Props;
 
   .grid {
     row-gap: var(--space-16) !important;
+  }
+
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .image :global(img) {
