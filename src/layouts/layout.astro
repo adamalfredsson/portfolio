@@ -3,6 +3,7 @@ import "@fontsource/josefin-sans";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import { theme } from "../config/theme";
+import "../styles/reset.css";
 import { flattenProperties } from "../utils/object";
 
 const cssVars = flattenProperties(theme);
@@ -25,20 +26,15 @@ const cssVars = flattenProperties(theme);
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
     <style is:global define:vars={cssVars}>
       html,
       body {
         font-family: "Josefin Sans", sans-serif;
-        margin: 0;
         scroll-behavior: smooth;
-      }
-
-      html,
-      body,
-      * {
-        box-sizing: border-box;
       }
 
       body,
@@ -55,10 +51,9 @@ const cssVars = flattenProperties(theme);
         color: initial;
       }
 
-      p,
-      ul,
-      ol {
-        margin: 0;
+      p {
+        max-width: 55ch;
+        line-height: 1.6;
       }
 
       h1,
@@ -66,13 +61,8 @@ const cssVars = flattenProperties(theme);
       h3,
       h4,
       h5 {
-        margin: 0;
         font-weight: normal;
-      }
-
-      p {
-        max-width: 55ch;
-        line-height: 1.6;
+        line-height: 1;
       }
 
       ul,
