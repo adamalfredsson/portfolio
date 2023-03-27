@@ -21,12 +21,7 @@ const { class: className, ...props } = Astro.props as Props;
         projects.map((project) => (
           <GridItem span={[6]}>
             <li class="project">
-              <a
-                class="image-link"
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="image-link" href={project.url} target="_blank">
                 <Pattern class="image-pattern">
                   <Picture
                     class="image"

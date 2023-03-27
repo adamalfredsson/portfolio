@@ -27,7 +27,7 @@ const { class: className, ...props } = Astro.props as Props;
 
 <style>
   .footer {
-    padding: var(--space-16) 0;
+    padding: var(--space-12) 0;
     background: var(--color-black);
     color: var(--color-white);
   }
@@ -52,12 +52,12 @@ const { class: className, ...props } = Astro.props as Props;
   }
 
   a :global(svg) {
-    width: var(--space-10);
-    height: var(--space-10);
+    width: var(--space-6);
+    height: var(--space-6);
 
     @media (--viewport-md) {
-      width: var(--space-14);
-      height: var(--space-14);
+      width: var(--space-8);
+      height: var(--space-8);
     }
   }
 </style>

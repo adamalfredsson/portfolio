@@ -2,6 +2,7 @@ import almondy from "../assets/images/almondy.jpg";
 import anima from "../assets/images/anima.jpg";
 import avatarcountry from "../assets/images/avatarcountry.jpg";
 import netclean from "../assets/images/netclean.jpg";
+import skattgpt from "../assets/images/skattgpt.jpg";
 import snxbox from "../assets/images/snxbox.jpg";
 
 interface Tag {
@@ -73,19 +74,29 @@ const docker: Tag = {
   url: "https://www.docker.com/",
 };
 
+const trpc: Tag = {
+  name: "tRPC",
+  url: "https://trpc.io/",
+};
+
 const googleCloudPlatform: Tag = {
-  name: "Google Cloud Platform",
+  name: "GCP",
   url: "https://cloud.google.com/",
+};
+
+const planetScale: Tag = {
+  name: "PlanetScale",
+  url: "https://planetscale.com/",
 };
 
 export const projects: Project[] = [
   {
-    title: "NetClean",
+    title: "SkattGPT",
     description:
-      "Detect and block child sexual abuse material on business IT devices. Collaborated with Level9 in launching NetClean's new marketing website. The frontend is built statically using Next.js with content managed in DatoCMS.",
-    image: netclean,
-    url: "https://netclean.com/",
-    tags: [nextJs, datoCms, netlify],
+      "Ask questions about your tax return and get answers from an AI.",
+    image: skattgpt,
+    url: "https://skattgpt.se/",
+    tags: [nextJs, trpc, prisma, planetScale],
   },
   {
     title: "Snxbox",
@@ -93,8 +104,15 @@ export const projects: Project[] = [
       "Do-it-yourself vending machine to deploy at your office. It's a fun and sophisticated side-project of mine. A Nest.js backend using Prisma as ORM and exposing a GraphQL API. App infrastructure is deployed on Google Cloud Platform using Docker & Cloud Run.",
     image: snxbox,
     url: "https://snxbox.app/",
-    sourceUrl: "https://github.com/nomadoda/snxbox",
-    tags: [nextJs, nestJs, prisma, datoCms, docker],
+    tags: [nextJs, nestJs, prisma, datoCms, docker, googleCloudPlatform],
+  },
+  {
+    title: "NetClean",
+    description:
+      "Detect and block child sexual abuse material on business IT devices. Collaborated with Level9 in launching NetClean's new marketing website. The frontend is built statically using Next.js with content managed in DatoCMS.",
+    image: netclean,
+    url: "https://netclean.com/",
+    tags: [nextJs, datoCms, netlify],
   },
   {
     title: "Almondy",
