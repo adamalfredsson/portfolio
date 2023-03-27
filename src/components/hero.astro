@@ -1,6 +1,6 @@
 ---
 import { Picture } from "@astrojs/image/components";
-import image from "../assets/images/profile.jpg";
+import image from "../assets/images/profile.png";
 import Button from "./atoms/button.svelte";
 import Container from "./atoms/container.astro";
 import GridItem from "./atoms/grid-item.astro";
@@ -21,8 +21,8 @@ const { class: className, ...props } = Astro.props as Props;
             id="hero-image"
             class="image"
             src={image}
-            alt="Me on the computer!"
-            widths={[400, 700, 1300]}
+            alt="Me on vacation in Italy!"
+            widths={[300, 600, 1200]}
             sizes="(max-width: 800px) 100vw, 800px"
             aspectRatio={1}
           />
@@ -57,6 +57,15 @@ const { class: className, ...props } = Astro.props as Props;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    max-width: 400px;
+  }
+
+  .image {
+    background: linear-gradient(
+      to bottom right,
+      var(--color-pink),
+      var(--color-blue)
+    );
   }
 
   .image :global(img) {
@@ -78,10 +87,6 @@ const { class: className, ...props } = Astro.props as Props;
 
     @media (--viewport-lg) {
       font-size: var(--text-3xl);
-    }
-
-    @media (--viewport-xl) {
-      font-size: var(--text-4xl);
     }
   }
 
